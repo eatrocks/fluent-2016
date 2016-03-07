@@ -9,3 +9,11 @@ https://fluentconf.surge.sh
 "Standard" Linter
 pre-configured ESLint that doesn't require/allow? semicolons
 only 2 cases of missing semi-colons that cause problems and the linter catches both
+
+make sure you include the dedupe plugin to webpack.
+
+// static app hosting service - free for subdomains
+surge.sh
+200.html is your catch-all
+404.html is your error page
+sign up from the command line
