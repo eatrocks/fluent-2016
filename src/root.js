@@ -1,10 +1,5 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
+import App from './app'
 
-const class Hello extends Component {
-    render () {
-        return <div>Hello, Fluent people</div>
-    }
-};
-
-render(<Hello/>, document.body);
+render(<App/>, document.body.firstChild)

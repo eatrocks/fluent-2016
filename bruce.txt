@@ -5,3 +5,7 @@ to this
 
 Building this app
 https://fluentconf.surge.sh
+
+"Standard" Linter
+pre-configured ESLint that doesn't require/allow? semicolons
+only 2 cases of missing semi-colons that cause problems and the linter catches both
