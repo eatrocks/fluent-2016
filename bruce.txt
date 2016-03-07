@@ -17,3 +17,22 @@ surge.sh
 200.html is your catch-all
 404.html is your error page
 sign up from the command line
+npm install --global surge
+>surge
+
+"Angular is not an option, Ember is not an option, Sorry, I want to build performant web apps"
+
+recording #1: 1:11:00
+"We are trying to do too much in the name of developer comfort"
+
+webpack has a syntax to load js that is specific to a page and no where else
+
+"No tool will save you from making a mess of your project"
+
+TODO read all of the redux docs
+
+I missed his description of store... see #2 at 1:17:00+
+
+connect wraps your component and implements shouldComponentUpdate and calls your "select" methods to determine if rendering is necessary.
+
+http://yeticss.com/
