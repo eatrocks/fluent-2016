@@ -1,0 +1,7 @@
+For windows, change this in package.json
+"build": "NODE_ENV=production webpack",
+to this
+"build": "set NODE_ENV=production&& webpack",
+
+Building this app
+https://fluentconf.surge.sh
