@@ -1,12 +1,13 @@
 import qs from 'query-string'
 import fetchHelper from './helpers/fetch-helper'
+import config from './config'
 
 export const UPDATE_URL = 'UPDATE_URL'
-export const updateUrl = (url, options = {replace: false}) => {
-    if (options.replace) {
+export const updateUrl = (url, options) => {
+  if (options && options.replace) {
         window.history.replaceState({}, null, url)
     }
-    return { type: UPDATE_URL, payload: url, replace: options.replace }
+  return { type: UPDATE_URL, payload: url }
 }
 
 // DO_LOGIN
@@ -14,7 +15,7 @@ export const DO_LOGIN = 'DO_LOGIN'
 export const doLogin = () => {
   return (dispatch) => {
     const loginUrl = 'https://github.com/login/oauth/authorize?' + qs.stringify({
-        client_id: '34d32bcd940626d0d6f3',
+      client_id: config.clientId,
         redirect_uri: `${window.location.origin}/auth/callback`,
     scope: 'user,repo'
     })
@@ -39,11 +40,9 @@ export const FETCH_TOKEN = 'FETCH_TOKEN'
 export const FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS'
 export const FETCH_TOKEN_ERROR = 'FETCH_TOKEN_ERROR'
 export const fetchTokenAndUser = (code) => {
-    const clientId = '34d32bcd940626d0d6f3'
-
     return (dispatch) => {
     dispatch({ type: FETCH_TOKEN })
-        fetchHelper(`https://github-secret-keeper.herokuapp.com/${clientId}/${code}`)
+    fetchHelper(`https://github-secret-keeper.herokuapp.com/${config.clientId}/${code}`)
         .then((data) => {
             const token = window.localStorage.token = data.access_token
             dispatch({ type: FETCH_TOKEN_SUCCESS, payload: token })

@@ -46,3 +46,12 @@ show selectively pulling-in polyfills. see root.js and helpers/polifills.js
 then show safari vs chrome, fetch and promise are large polyfills so use this functionality instead of just letting babbel add it for everyone.
 
 they really need to be logged out of github also, but that's a big oauth question that doesn't have one good answer.
+
+
+to deploy
+register app with github
+... see readme
+see github-secret-keeper
+it has a deploy to heroku button.
+add your secret to secret keeper instance
+for surge, create 200.html file. so that /auth/callback goes somewhere and doesn't 404
