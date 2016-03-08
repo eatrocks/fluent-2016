@@ -38,3 +38,11 @@ connect wraps your component and implements shouldComponentUpdate and calls your
 http://yeticss.com/
 
 I missed a bunch of audio between audio clips 2 and 3
+
+js dependency visualization
+https://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/
+
+show selectively pulling-in polyfills. see root.js and helpers/polifills.js
+then show safari vs chrome, fetch and promise are large polyfills so use this functionality instead of just letting babbel add it for everyone.
+
+they really need to be logged out of github also, but that's a big oauth question that doesn't have one good answer.

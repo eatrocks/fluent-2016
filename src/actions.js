@@ -2,8 +2,11 @@ import qs from 'query-string'
 import fetchHelper from './helpers/fetch-helper'
 
 export const UPDATE_URL = 'UPDATE_URL'
-export const updateUrl = (url) => {
-    return { type: UPDATE_URL, payload: url }
+export const updateUrl = (url, options = { replace: false}) => {
+    if (options.replace) {
+        window.history.replaceState({}, null, url)
+    }
+    return { type: UPDATE_URL, payload: url, replace: options.replace }
 }
 
 // DO_LOGIN
@@ -22,6 +25,15 @@ export const doLogin = () => {
   }
 }
 
+export const DO_LOGOUT = 'DO_LOGOUT'
+export const doLogout = () => {
+    return (dispatch) => {
+        dispatch({ type: DO_LOGOUT })
+        window.localStorage.clear()
+        window.location = '/'
+    }
+}
+
 // FETCH_TOKEN
 export const FETCH_TOKEN = 'FETCH_TOKEN'
 export const FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS'
@@ -35,8 +47,6 @@ export const fetchTokenAndUser = (code) => {
         .then((data) => {
             const token = window.localStorage.token = data.access_token
             dispatch({ type: FETCH_TOKEN_SUCCESS, payload: token })
-
-            dispatch(fetchUser())
         })
         .catch((error) => {
             dispatch({ type: FETCH_TOKEN_ERROR, error })
@@ -47,16 +57,16 @@ export const fetchTokenAndUser = (code) => {
     }
 }
 
+// FETCH_USER
 export const FETCH_USER = 'FETCH_USER'
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
 export const FETCH_USER_ERROR = 'FETCH_USER_ERROR'
 export const fetchUser = () => {
-
-    return (dispatch) => { dispatch({ type: FETCH_USER })
+  return (dispatch) => {
         dispatch({ type: FETCH_USER })
         fetchHelper('/user')
         .then((data) => {
-
+            window.localStorage.user = JSON.stringify(data, null, 2)
             dispatch({ type: FETCH_USER_SUCCESS, payload: data })
         })
         .catch((error) => {
