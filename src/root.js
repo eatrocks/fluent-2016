@@ -4,9 +4,15 @@ import App from './app'
 import './styles/main.styl'
 import createStore from './store'
 import { Provider } from 'react-redux'
-import { updateUrl } from './actions'
+import { updateUrl, fetchTokenAndUser } from './actions'
+import qs from 'query-string'
 
 const store = window.store = createStore()
+
+if (window.location.pathname === '/auth/callback') {
+  const query = qs.parse(window.location.search)
+  store.dispatch(fetchTokenAndUser(query.code))
+}
 
 const setCurrentUrl = () => {
   store.dispatch(updateUrl(window.location.pathname))

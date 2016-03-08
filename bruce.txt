@@ -36,3 +36,5 @@ I missed his description of store... see #2 at 1:17:00+
 connect wraps your component and implements shouldComponentUpdate and calls your "select" methods to determine if rendering is necessary.
 
 http://yeticss.com/
+
+I missed a bunch of audio between audio clips 2 and 3
