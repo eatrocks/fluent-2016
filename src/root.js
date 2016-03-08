@@ -17,11 +17,10 @@ ensurePolyfills(() => {
     if (window.location.pathname === '/auth/callback') {
       const query = qs.parse(window.location.search)
       store.dispatch(fetchTokenAndUser(query.code))
-    store.dispatch(updateUrl('/watched-repos', {replace: true}))
-  } else if (store.getState().me.token) {
-      // this app only has one page, so go there since you are already logged in
       store.dispatch(updateUrl('/watched-repos', {replace: true}))
-  }
+    } else if (!store.getState().me.token) {
+      store.dispatch(updateUrl('/', {replace: true}))
+    }
 
     const setCurrentUrl = () => {
       store.dispatch(updateUrl(window.location.pathname))
