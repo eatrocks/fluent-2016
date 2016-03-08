@@ -1,5 +1,6 @@
 import React from 'react'
 import LoginPage from './pages/login'
+import WatchedReposPage from './pages/watched-repos'
 import Nav from './components/nav'
 import { connect } from 'react-redux'
 import NavHelper from 'react-internal-nav'
@@ -15,6 +16,8 @@ export const App = (props) => {
 
     if (url === '/') {
         page = <LoginPage doLogin={doLogin}/>
+    } else if (url === '/watched-repos') {
+        page = <WatchedReposPage/>
     }
 
     if (url !== '/') {
@@ -34,7 +37,7 @@ export const App = (props) => {
 const select = (state) => {
     return {
         url: state.route.url,
-        userData: state.me.data
+    userData: state.me.data
     }
 }
 
