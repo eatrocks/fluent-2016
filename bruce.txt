@@ -1,3 +1,8 @@
+This is duplicated in OneNote
+read all of the redux docs
+http://redux.js.org/
+
+
 For windows, change this in package.json
 "build": "NODE_ENV=production webpack",
 to this
@@ -5,6 +10,18 @@ to this
 
 Building this app
 https://fluentconf.surge.sh
+https://bruce.surge.sh/
+
+https://github.com/HenrikJoreteg/fluent-2016
+https://github.com/eatrocks/fluent-2016
+
+My Repo is a complete for sync'd after the class finished
+The master branch has all of Henrik's in-class commits
+The bruce branch is where I did all my work locally
+The bruce and master branch are nearly identical at the end.
+The starting-point branch is the starting point, branched from master at the beginning
+
+https://developer.github.com/v3/oauth/
 
 "Standard" Linter
 pre-configured ESLint that doesn't require/allow? semicolons
@@ -28,8 +45,6 @@ recording #1: 1:11:00
 webpack has a syntax to load js that is specific to a page and no where else
 
 "No tool will save you from making a mess of your project"
-
-TODO read all of the redux docs
 
 I missed his description of store... see #2 at 1:17:00+
 
@@ -62,3 +77,11 @@ Exploring Redux middleware
 check out blog.krawaller.se/posts/exploring-redux-middleware
 
 don't forget about selectors.
+https://github.com/reactjs/reselect
+
+
+server side rendering
+to get the hot module loading to get out of the way
+>NODE_ENV=production node.js server-render.js
+
+HenerikJoreteg on twitter
