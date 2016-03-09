@@ -54,4 +54,11 @@ register app with github
 see github-secret-keeper
 it has a deploy to heroku button.
 add your secret to secret keeper instance
+    client id is keyname (left side), secret is value (right side) within heroku
+
 for surge, create 200.html file. so that /auth/callback goes somewhere and doesn't 404
+
+Exploring Redux middleware
+check out blog.krawaller.se/posts/exploring-redux-middleware
+
+don't forget about selectors.
